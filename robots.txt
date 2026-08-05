@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://seniordog.kr/sitemap.xml
+
+#DaumWebMasterTool:bf8a257aee0b5e7f51ccd78a3870a3aefdc86cab2e4783dce689a440c5344919:P9w4LyykEX5hnuiYI3Hlww==
