@@ -1,0 +1,386 @@
+<title>시니어독 건강백서</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root{
+    --paper:#F3EEE1;
+    --paper-raised:#EAE3D0;
+    --ink:#232E27;
+    --ink-soft:#5B6459;
+    --pine:#2F4C3E;
+    --pine-strong:#1F332A;
+    --brass:#9C7A2E;
+    --brass-bright:#B5924A;
+    --rule:#CDC2A2;
+    --rule-soft:#DDD4BA;
+    --serif: Georgia, "Times New Roman", serif;
+    --sans: "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+    --mono: "D2Coding", "Consolas", ui-monospace, "SFMono-Regular", monospace;
+  }
+  :root[data-theme="dark"]{
+    --paper:#1B211D;
+    --paper-raised:#232B25;
+    --ink:#EAE4D2;
+    --ink-soft:#A8A794;
+    --pine:#8AB39A;
+    --pine-strong:#A9CBB4;
+    --brass:#D2AE64;
+    --brass-bright:#E2C27E;
+    --rule:#3B4438;
+    --rule-soft:#2C332B;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#1B211D;
+      --paper-raised:#232B25;
+      --ink:#EAE4D2;
+      --ink-soft:#A8A794;
+      --pine:#8AB39A;
+      --pine-strong:#A9CBB4;
+      --brass:#D2AE64;
+      --brass-bright:#E2C27E;
+      --rule:#3B4438;
+      --rule-soft:#2C332B;
+    }
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  ::selection{background:var(--brass);color:var(--paper);}
+
+  .sheet{
+    max-width:760px;
+    margin:0 auto;
+    padding:0 28px 120px;
+    position:relative;
+  }
+  .spine{
+    position:absolute;
+    left:0;
+    top:0;
+    bottom:0;
+    width:1px;
+    background:var(--rule);
+    display:none;
+  }
+  @media (min-width:820px){
+    .sheet{padding:0 0 140px;}
+    .spine{display:block; left:-40px;}
+  }
+
+  /* header */
+  header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:26px 0;
+    border-bottom:1px solid var(--rule);
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .brandmark{display:flex;align-items:center;gap:12px;}
+  .brandmark svg{width:40px;height:40px;flex:none;}
+  .brandmark .word{
+    font-family:var(--serif);
+    font-size:1.05rem;
+    letter-spacing:.02em;
+    color:var(--ink);
+  }
+  .brandmark .word b{font-weight:700;color:var(--pine);}
+  nav{display:flex;gap:22px;flex-wrap:wrap;}
+  nav a{
+    font-size:.82rem;
+    text-decoration:none;
+    color:var(--ink-soft);
+    letter-spacing:.03em;
+    border-bottom:1px solid transparent;
+    padding-bottom:2px;
+    transition:color .15s, border-color .15s;
+  }
+  nav a:hover, nav a:focus-visible{color:var(--pine-strong);border-color:var(--brass);outline:none;}
+
+  /* cover / hero */
+  .cover{padding:64px 0 48px;}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--brass);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:22px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:26px;height:1px;
+    background:var(--brass);
+    display:inline-block;
+  }
+  h1{
+    font-family:var(--serif);
+    font-weight:400;
+    font-size:clamp(2.1rem, 5vw, 3.1rem);
+    line-height:1.28;
+    margin:0 0 20px;
+    text-wrap:balance;
+    color:var(--ink);
+  }
+  h1 em{
+    font-style:normal;
+    color:var(--pine-strong);
+    border-bottom:2px solid var(--brass);
+  }
+  .lede{
+    font-size:1.05rem;
+    color:var(--ink-soft);
+    max-width:56ch;
+    margin:0 0 30px;
+  }
+  .vitals{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-top:36px;
+  }
+  .vitals svg{width:100%;max-width:340px;height:34px;display:block;}
+  .vitals span{
+    font-family:var(--mono);
+    font-size:.72rem;
+    color:var(--ink-soft);
+    white-space:nowrap;
+  }
+
+  /* section framework */
+  section.entry{
+    padding:48px 0;
+    border-bottom:1px solid var(--rule);
+  }
+  section.entry:last-of-type{border-bottom:none;}
+  .entry-head{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:22px;
+  }
+  .entry-code{
+    font-family:var(--mono);
+    font-size:.74rem;
+    color:var(--brass);
+    letter-spacing:.06em;
+    flex:none;
+  }
+  .entry-title{
+    font-family:var(--serif);
+    font-size:1.5rem;
+    font-weight:400;
+    color:var(--ink);
+    margin:0;
+  }
+
+  .principles{
+    list-style:none;
+    margin:26px 0 0;
+    padding:0;
+    display:grid;
+    gap:12px;
+  }
+  .principles li{
+    display:flex;
+    gap:14px;
+    font-size:.92rem;
+    color:var(--ink-soft);
+    align-items:baseline;
+  }
+  .principles li::before{
+    content:"—";
+    color:var(--brass);
+    flex:none;
+  }
+  .principles b{color:var(--ink);font-weight:600;}
+
+  /* category index */
+  .index-list{
+    display:flex;
+    flex-direction:column;
+  }
+  .index-row{
+    display:grid;
+    grid-template-columns:64px 1fr;
+    gap:18px;
+    padding:18px 0;
+    border-top:1px solid var(--rule-soft);
+    align-items:baseline;
+  }
+  .index-row:first-child{border-top:none;}
+  .index-row .code{
+    font-family:var(--mono);
+    font-size:.78rem;
+    color:var(--brass);
+    padding-top:3px;
+  }
+  .index-row .label{
+    font-family:var(--serif);
+    font-size:1.18rem;
+    color:var(--ink);
+    margin:0 0 4px;
+  }
+  .index-row .desc{
+    font-size:.88rem;
+    color:var(--ink-soft);
+    margin:0;
+  }
+
+  footer{
+    padding:40px 0 0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  footer .brandmark svg{width:26px;height:26px;}
+  footer .word{font-size:.85rem;}
+  footer .note{
+    font-family:var(--mono);
+    font-size:.7rem;
+    color:var(--ink-soft);
+    letter-spacing:.03em;
+  }
+
+  @media (prefers-reduced-motion: no-preference){
+    .cover h1, .lede, .eyebrow, .vitals{
+      animation:rise .7s ease both;
+    }
+    .lede{animation-delay:.08s;}
+    .vitals{animation-delay:.16s;}
+    @keyframes rise{
+      from{opacity:0; transform:translateY(10px);}
+      to{opacity:1; transform:translateY(0);}
+    }
+  }
+</style>
+
+<div class="sheet">
+  <div class="spine" aria-hidden="true"></div>
+
+  <header>
+    <div class="brandmark">
+      <svg viewBox="0 0 64 64" role="img" aria-label="시니어독 건강백서 로고">
+        <circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="1" style="color:var(--brass)"/>
+        <circle cx="32" cy="32" r="26" fill="none" stroke="currentColor" stroke-width="1" style="color:var(--rule)"/>
+        <path d="M32 15c-6 0-9.5 4.6-9.5 10 0 3 1 5 1 8 0 4.5 3.8 8 8.5 8s8.5-3.5 8.5-8c0-3 1-5 1-8 0-5.4-3.5-10-9.5-10z"
+              fill="none" stroke="currentColor" stroke-width="1.6" style="color:var(--pine-strong)"/>
+        <path d="M23.5 24c-2.5 1-4.5 4-4 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" style="color:var(--pine-strong)"/>
+        <circle cx="28.5" cy="27" r="1.1" fill="var(--pine-strong)"/>
+        <circle cx="35.5" cy="27" r="1.1" fill="var(--pine-strong)"/>
+        <path d="M16 41 L22 41 L25 35 L28 46 L31 38 L33 41 L48 41"
+              fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round" style="color:var(--brass-bright)"/>
+      </svg>
+      <div class="word">시니어독 <b>건강백서</b></div>
+    </div>
+    <nav>
+      <a href="#health">건강관리</a>
+      <a href="#nutrition">영양·사료</a>
+      <a href="#gear">용품리뷰</a>
+      <a href="#cost">병원·비용가이드</a>
+      <a href="#log">집사일지</a>
+    </nav>
+  </header>
+
+  <section class="cover">
+    <div class="eyebrow">SENIOR DOG HEALTH REPORT · 반려동물 케어 아카이브</div>
+    <h1>소형견의 노후를,<br /><em>기록으로</em> 준비합니다.</h1>
+    <p class="lede">
+      시니어독 건강백서는 나이 들어가는 반려견 — 특히 소형견 — 이
+      마지막까지 편안하고 존엄하게 지낼 수 있도록, 검진 시기부터 영양 관리,
+      용품 선택까지 근거를 갖춘 정보를 정리하고 기록하는 아카이브입니다.
+    </p>
+    <div class="vitals" aria-hidden="true">
+      <svg viewBox="0 0 340 34" preserveAspectRatio="none">
+        <line x1="0" y1="17" x2="340" y2="17" stroke="var(--rule)" stroke-width="1"/>
+        <path d="M0 17 L110 17 L122 4 L134 30 L146 17 L340 17"
+              fill="none" stroke="var(--pine)" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+      </svg>
+      <span>VOL. 01 — 소형견 시니어 케어</span>
+    </div>
+  </section>
+
+  <section class="entry" id="about">
+    <div class="entry-head">
+      <span class="entry-code">ABOUT</span>
+      <h2 class="entry-title">발행 원칙</h2>
+    </div>
+    <p style="color:var(--ink-soft); max-width:58ch; font-size:.95rem;">
+      모든 글은 아래 세 가지 원칙 위에서 작성됩니다.
+    </p>
+    <ul class="principles">
+      <li><b>근거 기반</b> — 수의학 자료와 공신력 있는 출처를 우선 인용합니다.</li>
+      <li><b>비교 중심</b> — 광고성 나열이 아닌, 조건별 비교와 체크리스트로 정리합니다.</li>
+      <li><b>현장 병행</b> — 자료 조사와 함께 실제 사용·돌봄 경험을 함께 다룹니다.</li>
+    </ul>
+  </section>
+
+  <section class="entry" id="index">
+    <div class="entry-head">
+      <span class="entry-code">INDEX</span>
+      <h2 class="entry-title">카테고리 구조</h2>
+    </div>
+    <div class="index-list">
+      <div class="index-row" id="health">
+        <span class="code">SEC.01</span>
+        <div>
+          <p class="label">건강관리</p>
+          <p class="desc">노령견 흔한 질병·증상, 정기검진 주기와 항목 정리</p>
+        </div>
+      </div>
+      <div class="index-row" id="nutrition">
+        <span class="code">SEC.02</span>
+        <div>
+          <p class="label">영양·사료</p>
+          <p class="desc">시니어견 사료 비교, 관절·영양제 성분 가이드</p>
+        </div>
+      </div>
+      <div class="index-row" id="gear">
+        <span class="code">SEC.03</span>
+        <div>
+          <p class="label">용품리뷰</p>
+          <p class="desc">이동장, 계단·미끄럼방지, 온도관리 용품 비교</p>
+        </div>
+      </div>
+      <div class="index-row" id="cost">
+        <span class="code">SEC.04</span>
+        <div>
+          <p class="label">병원·비용가이드</p>
+          <p class="desc">검진·진료 비용 정리와 병원 선택 기준</p>
+        </div>
+      </div>
+      <div class="index-row" id="log">
+        <span class="code">SEC.05</span>
+        <div>
+          <p class="label">집사일지</p>
+          <p class="desc">실제 돌봄 기록과 경험담</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="brandmark">
+      <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
+        <circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="1" style="color:var(--brass)"/>
+        <path d="M32 15c-6 0-9.5 4.6-9.5 10 0 3 1 5 1 8 0 4.5 3.8 8 8.5 8s8.5-3.5 8.5-8c0-3 1-5 1-8 0-5.4-3.5-10-9.5-10z"
+              fill="none" stroke="currentColor" stroke-width="1.6" style="color:var(--pine-strong)"/>
+      </svg>
+      <div class="word">시니어독 건강백서</div>
+    </div>
+    <div class="note">EST. 2026 · SENIOR DOG HEALTH REPORT</div>
+  </footer>
+</div>
