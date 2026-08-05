@@ -1,316 +1,22 @@
-<title>시니어독 건강백서</title>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<title>시니어독 건강백서 — 소형견 노령견 케어 정보 아카이브</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="소형견 노령견 건강관리, 정기검진 주기, 영양·사료, 용품비교까지 — 근거 기반으로 정리하는 시니어견 케어 아카이브 시니어독 건강백서입니다." />
+<link rel="canonical" href="https://seniordog.kr/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="시니어독 건강백서 — 소형견 노령견 케어 정보 아카이브" />
+<meta property="og:description" content="소형견 노령견 건강관리, 정기검진 주기, 영양·사료, 용품비교까지 — 근거 기반 시니어견 케어 아카이브." />
+<meta property="og:url" content="https://seniordog.kr/" />
+<meta property="og:locale" content="ko_KR" />
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="favicon.png" />
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-<style>
-  :root{
-    --paper:#F3EEE1;
-    --paper-raised:#EAE3D0;
-    --ink:#232E27;
-    --ink-soft:#5B6459;
-    --pine:#2F4C3E;
-    --pine-strong:#1F332A;
-    --brass:#9C7A2E;
-    --brass-bright:#B5924A;
-    --rule:#CDC2A2;
-    --rule-soft:#DDD4BA;
-    --serif: Georgia, "Times New Roman", serif;
-    --sans: "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
-    --mono: "D2Coding", "Consolas", ui-monospace, "SFMono-Regular", monospace;
-  }
-  :root[data-theme="dark"]{
-    --paper:#1B211D;
-    --paper-raised:#232B25;
-    --ink:#EAE4D2;
-    --ink-soft:#A8A794;
-    --pine:#8AB39A;
-    --pine-strong:#A9CBB4;
-    --brass:#D2AE64;
-    --brass-bright:#E2C27E;
-    --rule:#3B4438;
-    --rule-soft:#2C332B;
-  }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --paper:#1B211D;
-      --paper-raised:#232B25;
-      --ink:#EAE4D2;
-      --ink-soft:#A8A794;
-      --pine:#8AB39A;
-      --pine-strong:#A9CBB4;
-      --brass:#D2AE64;
-      --brass-bright:#E2C27E;
-      --rule:#3B4438;
-      --rule-soft:#2C332B;
-    }
-  }
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:var(--sans);
-    line-height:1.7;
-    -webkit-font-smoothing:antialiased;
-  }
-  a{color:inherit;}
-  ::selection{background:var(--brass);color:var(--paper);}
-
-  .sheet{
-    max-width:760px;
-    margin:0 auto;
-    padding:0 28px 120px;
-    position:relative;
-  }
-  .spine{
-    position:absolute;
-    left:0;
-    top:0;
-    bottom:0;
-    width:1px;
-    background:var(--rule);
-    display:none;
-  }
-  @media (min-width:820px){
-    .sheet{padding:0 0 140px;}
-    .spine{display:block; left:-40px;}
-  }
-
-  /* header */
-  header{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:26px 0;
-    border-bottom:1px solid var(--rule);
-    gap:16px;
-    flex-wrap:wrap;
-  }
-  .brandmark{display:flex;align-items:center;gap:12px;}
-  .brandmark svg{width:40px;height:40px;flex:none;}
-  .brandmark .word{
-    font-family:var(--serif);
-    font-size:1.05rem;
-    letter-spacing:.02em;
-    color:var(--ink);
-  }
-  .brandmark .word b{font-weight:700;color:var(--pine);}
-  nav{display:flex;gap:22px;flex-wrap:wrap;}
-  nav a{
-    font-size:.82rem;
-    text-decoration:none;
-    color:var(--ink-soft);
-    letter-spacing:.03em;
-    border-bottom:1px solid transparent;
-    padding-bottom:2px;
-    transition:color .15s, border-color .15s;
-  }
-  nav a:hover, nav a:focus-visible{color:var(--pine-strong);border-color:var(--brass);outline:none;}
-
-  /* cover / hero */
-  .cover{padding:64px 0 48px;}
-  .eyebrow{
-    font-family:var(--mono);
-    font-size:.72rem;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    color:var(--brass);
-    display:flex;
-    align-items:center;
-    gap:10px;
-    margin-bottom:22px;
-  }
-  .eyebrow::before{
-    content:"";
-    width:26px;height:1px;
-    background:var(--brass);
-    display:inline-block;
-  }
-  h1{
-    font-family:var(--serif);
-    font-weight:400;
-    font-size:clamp(2.1rem, 5vw, 3.1rem);
-    line-height:1.28;
-    margin:0 0 20px;
-    text-wrap:balance;
-    color:var(--ink);
-  }
-  h1 em{
-    font-style:normal;
-    color:var(--pine-strong);
-    border-bottom:2px solid var(--brass);
-  }
-  .lede{
-    font-size:1.05rem;
-    color:var(--ink-soft);
-    max-width:56ch;
-    margin:0 0 30px;
-  }
-  .vitals{
-    display:flex;
-    align-items:center;
-    gap:14px;
-    margin-top:36px;
-  }
-  .vitals svg{width:100%;max-width:340px;height:34px;display:block;}
-  .vitals span{
-    font-family:var(--mono);
-    font-size:.72rem;
-    color:var(--ink-soft);
-    white-space:nowrap;
-  }
-
-  /* section framework */
-  section.entry{
-    padding:48px 0;
-    border-bottom:1px solid var(--rule);
-  }
-  section.entry:last-of-type{border-bottom:none;}
-  .entry-head{
-    display:flex;
-    align-items:baseline;
-    gap:14px;
-    margin-bottom:22px;
-  }
-  .entry-code{
-    font-family:var(--mono);
-    font-size:.74rem;
-    color:var(--brass);
-    letter-spacing:.06em;
-    flex:none;
-  }
-  .entry-title{
-    font-family:var(--serif);
-    font-size:1.5rem;
-    font-weight:400;
-    color:var(--ink);
-    margin:0;
-  }
-
-  .principles{
-    list-style:none;
-    margin:26px 0 0;
-    padding:0;
-    display:grid;
-    gap:12px;
-  }
-  .principles li{
-    display:flex;
-    gap:14px;
-    font-size:.92rem;
-    color:var(--ink-soft);
-    align-items:baseline;
-  }
-  .principles li::before{
-    content:"—";
-    color:var(--brass);
-    flex:none;
-  }
-  .principles b{color:var(--ink);font-weight:600;}
-
-  /* category index */
-  .index-list{
-    display:flex;
-    flex-direction:column;
-  }
-  .index-row{
-    display:grid;
-    grid-template-columns:64px 1fr;
-    gap:18px;
-    padding:18px 0;
-    border-top:1px solid var(--rule-soft);
-    align-items:baseline;
-  }
-  .index-row:first-child{border-top:none;}
-  .index-row .code{
-    font-family:var(--mono);
-    font-size:.78rem;
-    color:var(--brass);
-    padding-top:3px;
-  }
-  .index-row .label{
-    font-family:var(--serif);
-    font-size:1.18rem;
-    color:var(--ink);
-    margin:0 0 4px;
-  }
-  .index-row .desc{
-    font-size:.88rem;
-    color:var(--ink-soft);
-    margin:0;
-  }
-
-  .post-list{
-    display:flex;
-    flex-direction:column;
-  }
-  .post-row{
-    display:flex;
-    justify-content:space-between;
-    align-items:baseline;
-    gap:16px;
-    padding:16px 0;
-    border-top:1px solid var(--rule-soft);
-    text-decoration:none;
-    color:inherit;
-  }
-  .post-row:first-child{border-top:none;}
-  .post-row .post-main{display:flex; align-items:baseline; gap:12px; min-width:0;}
-  .post-row .post-tag{
-    font-family:var(--mono);
-    font-size:.7rem;
-    color:var(--brass);
-    border:1px solid var(--rule);
-    border-radius:4px;
-    padding:2px 7px;
-    flex:none;
-  }
-  .post-row .post-title{
-    font-family:var(--serif);
-    font-size:1.02rem;
-    color:var(--ink);
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
-  }
-  .post-row .post-arrow{
-    font-family:var(--mono);
-    font-size:.8rem;
-    color:var(--ink-soft);
-    flex:none;
-  }
-  .post-row:hover .post-title{color:var(--pine-strong);}
-
-  footer{
-    padding:40px 0 0;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:16px;
-    flex-wrap:wrap;
-  }
-  footer .brandmark svg{width:26px;height:26px;}
-  footer .word{font-size:.85rem;}
-  footer .note{
-    font-family:var(--mono);
-    font-size:.7rem;
-    color:var(--ink-soft);
-    letter-spacing:.03em;
-  }
-
-  @media (prefers-reduced-motion: no-preference){
-    .cover h1, .lede, .eyebrow, .vitals{
-      animation:rise .7s ease both;
-    }
-    .lede{animation-delay:.08s;}
-    .vitals{animation-delay:.16s;}
-    @keyframes rise{
-      from{opacity:0; transform:translateY(10px);}
-      to{opacity:1; transform:translateY(0);}
-    }
-  }
-</style>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
 <div class="sheet">
   <div class="spine" aria-hidden="true"></div>
@@ -331,11 +37,11 @@
       <div class="word">시니어독 <b>건강백서</b></div>
     </div>
     <nav>
-      <a href="#health">건강관리</a>
-      <a href="#nutrition">영양·사료</a>
-      <a href="#gear">용품리뷰</a>
-      <a href="#cost">병원·비용가이드</a>
-      <a href="#log">집사일지</a>
+      <a href="health.html">건강관리</a>
+      <a href="nutrition.html">영양·사료</a>
+      <a href="gear.html">용품리뷰</a>
+      <a href="cost.html">병원·비용가이드</a>
+      <a href="log.html">집사일지</a>
       <a href="https://blog.naver.com/seniordog_report" target="_blank" rel="noopener" style="color:var(--brass);">블로그 ↗</a>
     </nav>
   </header>
@@ -379,47 +85,46 @@
       <h2 class="entry-title">카테고리 구조</h2>
     </div>
     <div class="index-list">
-      <div class="index-row" id="health">
+      <a class="index-row" href="health.html">
         <span class="code">SEC.01</span>
         <div>
           <p class="label">건강관리</p>
           <p class="desc">노령견 흔한 질병·증상, 정기검진 주기와 항목 정리</p>
         </div>
-      </div>
-      <div class="index-row" id="nutrition">
+      </a>
+      <a class="index-row" href="nutrition.html">
         <span class="code">SEC.02</span>
         <div>
           <p class="label">영양·사료</p>
           <p class="desc">시니어견 사료 비교, 관절·영양제 성분 가이드</p>
         </div>
-      </div>
-      <div class="index-row" id="gear">
+      </a>
+      <a class="index-row" href="gear.html">
         <span class="code">SEC.03</span>
         <div>
           <p class="label">용품리뷰</p>
           <p class="desc">이동장, 계단·미끄럼방지, 온도관리 용품 비교</p>
         </div>
-      </div>
-      <div class="index-row" id="cost">
+      </a>
+      <a class="index-row" href="cost.html">
         <span class="code">SEC.04</span>
         <div>
           <p class="label">병원·비용가이드</p>
           <p class="desc">검진·진료 비용 정리와 병원 선택 기준</p>
         </div>
-      </div>
-      <div class="index-row" id="log">
+      </a>
+      <a class="index-row" href="log.html">
         <span class="code">SEC.05</span>
         <div>
           <p class="label">집사일지</p>
           <p class="desc">실제 돌봄 기록과 경험담</p>
         </div>
-      </div>
+      </a>
     </div>
   </section>
 
   <!--
     최근 발행 글 목록 — 새 글 발행할 때마다 이 자리에 <a class="post-row"> 한 줄 추가.
-    href는 네이버 발행 후 나오는 정확한 글 permalink(blog.naver.com/seniordog_report/223########)로 교체.
     맨 위에 최신 글이 오도록 추가.
   -->
   <section class="entry" id="posts">
@@ -428,7 +133,7 @@
       <h2 class="entry-title">최근 발행 글</h2>
     </div>
     <div class="post-list">
-      <a class="post-row" href="https://blog.naver.com/seniordog_report" target="_blank" rel="noopener">
+      <a class="post-row" href="posts/01-소형견-노령견-기준-나이표.html">
         <div class="post-main">
           <span class="post-tag">건강관리</span>
           <span class="post-title">소형견 노령견 기준 나이표, 몇 살부터 시니어일까</span>
@@ -453,3 +158,6 @@
     </div>
   </footer>
 </div>
+
+</body>
+</html>
