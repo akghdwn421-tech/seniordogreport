@@ -1,5 +1,8 @@
 <title>시니어독 건강백서</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="favicon.png" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <style>
   :root{
     --paper:#F3EEE1;
@@ -238,6 +241,47 @@
     margin:0;
   }
 
+  .post-list{
+    display:flex;
+    flex-direction:column;
+  }
+  .post-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:16px;
+    padding:16px 0;
+    border-top:1px solid var(--rule-soft);
+    text-decoration:none;
+    color:inherit;
+  }
+  .post-row:first-child{border-top:none;}
+  .post-row .post-main{display:flex; align-items:baseline; gap:12px; min-width:0;}
+  .post-row .post-tag{
+    font-family:var(--mono);
+    font-size:.7rem;
+    color:var(--brass);
+    border:1px solid var(--rule);
+    border-radius:4px;
+    padding:2px 7px;
+    flex:none;
+  }
+  .post-row .post-title{
+    font-family:var(--serif);
+    font-size:1.02rem;
+    color:var(--ink);
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .post-row .post-arrow{
+    font-family:var(--mono);
+    font-size:.8rem;
+    color:var(--ink-soft);
+    flex:none;
+  }
+  .post-row:hover .post-title{color:var(--pine-strong);}
+
   footer{
     padding:40px 0 0;
     display:flex;
@@ -370,6 +414,27 @@
           <p class="desc">실제 돌봄 기록과 경험담</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!--
+    최근 발행 글 목록 — 새 글 발행할 때마다 이 자리에 <a class="post-row"> 한 줄 추가.
+    href는 네이버 발행 후 나오는 정확한 글 permalink(blog.naver.com/seniordog_report/223########)로 교체.
+    맨 위에 최신 글이 오도록 추가.
+  -->
+  <section class="entry" id="posts">
+    <div class="entry-head">
+      <span class="entry-code">POSTS</span>
+      <h2 class="entry-title">최근 발행 글</h2>
+    </div>
+    <div class="post-list">
+      <a class="post-row" href="https://blog.naver.com/seniordog_report" target="_blank" rel="noopener">
+        <div class="post-main">
+          <span class="post-tag">건강관리</span>
+          <span class="post-title">소형견 노령견 기준 나이표, 몇 살부터 시니어일까</span>
+        </div>
+        <span class="post-arrow">↗</span>
+      </a>
     </div>
   </section>
 
