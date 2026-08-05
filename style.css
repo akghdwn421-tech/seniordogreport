@@ -335,8 +335,8 @@ figure.post-figure figcaption{font-size:.78rem; color:var(--ink-soft); margin-to
 }
 .product-card .pending{font-family:var(--mono); font-size:.68rem; color:var(--brass); letter-spacing:.03em;}
 .affiliate-disclosure{
-  font-size:.78rem; color:var(--ink-soft); background:var(--paper-raised);
-  border-radius:6px; padding:10px 14px; margin:20px 0;
+  font-size:.68rem; color:var(--ink-soft); opacity:.65;
+  margin:8px 0 0;
 }
 
 footer{
