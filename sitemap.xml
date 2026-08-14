@@ -65,4 +65,14 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+  <url>
+    <loc>https://seniordog.kr/posts/08-노령견-여름철-더위-대응-용품-비교.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://seniordog.kr/posts/09-노령견-시력-청력-저하-안전용품-비교.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
 </urlset>
